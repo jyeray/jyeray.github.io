@@ -28,25 +28,25 @@
 
 
 <link rel="canonical" href="https://jyeray.github.io/post/middlewarefilter/"><meta property="og:title" content="MiddlewareFilter asp .net core" />
-<meta property="og:description" content="One of my favourites features of ASP .NET Core compared to ASP .NET is the application pipeline or app pipeline. Basically the app pipeline allow you to specify what should be executed when an HTTP request arrive.
-The idea is simple, when an HTTP request is being execute, the middlewares are executed in order. Each middleware has the responsability of call the next middleware in the pipeline or do not call it, short-circuiting the pipeline. This is a powerfull way to configure the behaviour of your application." />
+<meta property="og:description" content="One of my favourites features of ASP .NET Core compared to ASP .NET is the application pipeline or app pipeline. The app pipeline allows you to specify what should be executed when an HTTP request arrives.
+The idea is simple when an HTTP request is executing, the middlewares are executed in order. Each middleware has the responsibility to call the next middleware in the pipeline or do not call it, short-circuiting the pipeline. This is a powerful way to configure the behaviour of your application." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jyeray.github.io/post/middlewarefilter/" />
 <meta property="article:published_time" content="2020-04-09T11:37:25+01:00" />
 <meta property="article:modified_time" content="2020-04-09T11:37:25+01:00" />
 <meta itemprop="name" content="MiddlewareFilter asp .net core">
-<meta itemprop="description" content="One of my favourites features of ASP .NET Core compared to ASP .NET is the application pipeline or app pipeline. Basically the app pipeline allow you to specify what should be executed when an HTTP request arrive.
-The idea is simple, when an HTTP request is being execute, the middlewares are executed in order. Each middleware has the responsability of call the next middleware in the pipeline or do not call it, short-circuiting the pipeline. This is a powerfull way to configure the behaviour of your application.">
+<meta itemprop="description" content="One of my favourites features of ASP .NET Core compared to ASP .NET is the application pipeline or app pipeline. The app pipeline allows you to specify what should be executed when an HTTP request arrives.
+The idea is simple when an HTTP request is executing, the middlewares are executed in order. Each middleware has the responsibility to call the next middleware in the pipeline or do not call it, short-circuiting the pipeline. This is a powerful way to configure the behaviour of your application.">
 <meta itemprop="datePublished" content="2020-04-09T11:37:25&#43;01:00" />
 <meta itemprop="dateModified" content="2020-04-09T11:37:25&#43;01:00" />
-<meta itemprop="wordCount" content="822">
+<meta itemprop="wordCount" content="817">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MiddlewareFilter asp .net core"/>
-<meta name="twitter:description" content="One of my favourites features of ASP .NET Core compared to ASP .NET is the application pipeline or app pipeline. Basically the app pipeline allow you to specify what should be executed when an HTTP request arrive.
-The idea is simple, when an HTTP request is being execute, the middlewares are executed in order. Each middleware has the responsability of call the next middleware in the pipeline or do not call it, short-circuiting the pipeline. This is a powerfull way to configure the behaviour of your application."/>
+<meta name="twitter:description" content="One of my favourites features of ASP .NET Core compared to ASP .NET is the application pipeline or app pipeline. The app pipeline allows you to specify what should be executed when an HTTP request arrives.
+The idea is simple when an HTTP request is executing, the middlewares are executed in order. Each middleware has the responsibility to call the next middleware in the pipeline or do not call it, short-circuiting the pipeline. This is a powerful way to configure the behaviour of your application."/>
 
 </head>
 <body>
@@ -79,7 +79,7 @@ The idea is simple, when an HTTP request is being execute, the middlewares are e
                     <div class="col-lg-8">
                         <div class="meta text-muted mb-3">
                             <p class="created text-muted text-uppercase font-weight-bold mb-1">April 9, 2020</p>
-                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>822 words</span>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>817 words</span>
                             <span><i class="fas fa-clock mr-2"></i>4 mins read</span>
                         </div>
 
@@ -102,8 +102,8 @@ The idea is simple, when an HTTP request is being execute, the middlewares are e
                 </div><div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="content">
-                            <p>One of my favourites features of ASP .NET Core compared to ASP .NET is the application pipeline or app pipeline. Basically the app pipeline allow you to specify what should be executed when an HTTP request arrive.</p>
-<p>The idea is simple, when an HTTP request is being execute, the middlewares are executed in order. Each middleware has the responsability of call the next middleware in the pipeline or do not call it, short-circuiting the pipeline. This is a powerfull way to configure the behaviour of your application.</p>
+                            <p>One of my favourites features of ASP .NET Core compared to ASP .NET is the application pipeline or app pipeline. The app pipeline allows you to specify what should be executed when an HTTP request arrives.</p>
+<p>The idea is simple when an HTTP request is executing, the middlewares are executed in order. Each middleware has the responsibility to call the next middleware in the pipeline or do not call it, short-circuiting the pipeline. This is a powerful way to configure the behaviour of your application.</p>
 <p>The pipeline is configured adding middlewares to <code>IApplicationBuilder</code> instance in <code>Configure</code> method within <code>Startup.cs</code>. It can look something like this:</p>
 <pre><code class="language-csharp">public void Configure(IApplicationBuilder app) {
     app
@@ -139,10 +139,10 @@ The idea is simple, when an HTTP request is being execute, the middlewares are e
     }
 }
 </code></pre>
-<p>An thats all, simply adding a call to this extension method in the <code>Configure</code>, every HTTP request will trigger a call to the <code>Invoke</code> method of your middleware.</p>
-<p>But, what happens if you do not want that you middleware be called in every requets?, what if you want to execute some logic only in certain controllers? For this case you have another option, use a <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-3.1">Filter</a></p>
+<p>And that&rsquo;s all, simply adding a call to this extension method in the <code>Configure</code>, every HTTP request will trigger a call to the <code>Invoke</code> method of your middleware.</p>
+<p>But, what happens if you do not want that your middleware is called in every request? what if you want to execute some logic only in certain controllers? For this case you have another option, use a <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-3.1">Filter</a></p>
 <h4 id="a-little-about-filters">A little about filters</h4>
-<p><em>Disclaimer: I am not going to explain all about filters in this posts, so if you are interested on this topic, i suggest you to check the <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-3.1">Microsoft documentation</a>.</em></p>
+<p><em>Disclaimer: I am not going to explain all about filters in this post, so if you are interested in this topic, I suggest you check the <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-3.1">Microsoft documentation</a>.</em></p>
 <p>Filters have a different lifecycle, as shown in the following figure they are executed within MVC action. This is after ASP .NET Core has selected the action to execute.</p>
 <figure class="figure">
     <a href="/images/middlewareFilter/filter-pipeline.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
@@ -154,14 +154,14 @@ The idea is simple, when an HTTP request is being execute, the middlewares are e
         </figcaption>
 </figure>
 
-<p>Filters are very powerfull but that powerfull have a price, the complexity. There are several filters types, with different methods to be implemented, all of these methods are called in different moments of the requests.</p>
-<p>But not allways all this complexity is needed, so there is another way to get the advantages of a filter avoiding such complexity.</p>
+<p>Filters are very powerful but that power has a price, the complexity. There are several filters types, with different methods to be implemented, all of these methods are called in different moments of the requests.</p>
+<p>But not always all this complexity is needed, so there is another way to get the advantages of a filter avoiding such complexity.</p>
 <h4 id="using-middleware-as-a-filter">Using middleware as a Filter</h4>
-<p>There is another tool that allow us to use a middleware as a filter, this is the MiddlewareFilterAttribute. The middleware will be invoked in the filter pipeline, in the runtime execution, giving us some of the advantages of the filters with the simplicity of middlewares.</p>
-<p>In order to use MiddlewareFilterAttribute we need to create a new class, this class must meet the following requisites:</p>
+<p>There is another tool that allows us to use a Middleware as a filter, this is the MiddlewareFilterAttribute. The middleware will be invoked in the filter pipeline, in the runtime execution, giving us some of the advantages of the filters with the simplicity of middlewares.</p>
+<p>To use MiddlewareFilterAttribute we need to create a new class, this class must meet the following requisites:</p>
 <ul>
-<li>have parameterless contructor.</li>
-<li>a public method <code>Configure</code> that receives <code>IApplicationBuilder</code> as parameter.</li>
+<li>have a parameterless constructor.</li>
+<li>a public method <code>Configure</code> that receives <code>IApplicationBuilder</code> as a parameter.</li>
 </ul>
 <p>Resuming our previous example, the class could look something like the following code. Note that the same logic that the previously <code>ExampleMiddlewareExtension</code>.</p>
 <pre><code class="language-csharp">public class ExampleMiddlewareBuilder {
@@ -184,9 +184,9 @@ public class ValuesController : ControllerBase {
 </code></pre>
 <p>And we have it, every HTTP request to <code>ValuesController</code> will trigger the execution of our <code>ExampleMiddleware</code></p>
 <h4 id="some-advantages-of-using-middlewarefilterattribute">Some advantages of using MiddlewareFilterAttribute</h4>
-<p>But there is more, executing the middleware within the filter pipeline give us some posibilites in the middleware, like access to the context of the action execution. For example we can access to ActionContext.</p>
-<p>Lets put an use case example, imagine that you want to compare the JSON that comes in the request body with the parameter that the action is expecting. This is not posible in the application pipeline, due to we need that the framework has already decided what action must be executed.</p>
-<p>Taking this use case, if we need to check the body of all requets. There is an option in order to not repeat the <code>MiddlewareFilterAttribute</code> declaration in every controller. We can use <code>MiddlewareFilterAttribute</code> to register the middleware as a global filter.</p>
+<p>But there is more, executing the middleware within the filter pipeline gives us some possibilities in the middleware, like access to the context of the action execution. For example, we can access to ActionContext.</p>
+<p>Lets put a use case example, imagine that you want to compare the JSON that comes in the request body with the parameter that the action is expecting. This is not possible in the application pipeline, due to we need that the framework has already decided what action must be executed.</p>
+<p>Taking this use case, if we need to check the body of all requests. There is an option to not repeat the <code>MiddlewareFilterAttribute</code> declaration in every controller. We can use <code>MiddlewareFilterAttribute</code> to register the middleware as a global filter.</p>
 <pre><code class="language-csharp">public void ConfigureServices(IServiceCollection services) {
     // ...
     services
