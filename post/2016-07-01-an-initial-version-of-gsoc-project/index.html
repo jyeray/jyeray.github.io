@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>
+  
+     An Initial Version of Gsoc Project | 
+    Joaquín&#39;s blog
+  
+</title><meta name="description" content="Have a lot of fun."><meta name="author" content="Joaquín Martín">
+
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism-tomorrow.min.css">
+    
+
+
+
+    
+        
+            <link rel="stylesheet" href="/dist/main.37ab3f61b95417873748.min.css">
+        
+    
+
+
+
+
+<link rel="canonical" href="https://jyeray.github.io/post/2016-07-01-an-initial-version-of-gsoc-project/"><meta property="og:title" content="An Initial Version of Gsoc Project" />
+<meta property="og:description" content="After one month working on my Google Summer of Code project, I&rsquo;m writing this post to inform about the current status of the project. If you want to know more about my project such as a description of the project and a short presentation of myself, you can read my previous post and view the code on github." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jyeray.github.io/post/2016-07-01-an-initial-version-of-gsoc-project/" />
+<meta property="article:published_time" content="2016-07-01T11:00:00+00:00" />
+<meta property="article:modified_time" content="2016-07-01T11:00:00+00:00" />
+<meta itemprop="name" content="An Initial Version of Gsoc Project">
+<meta itemprop="description" content="After one month working on my Google Summer of Code project, I&rsquo;m writing this post to inform about the current status of the project. If you want to know more about my project such as a description of the project and a short presentation of myself, you can read my previous post and view the code on github.">
+<meta itemprop="datePublished" content="2016-07-01T11:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-07-01T11:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="717">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="An Initial Version of Gsoc Project"/>
+<meta name="twitter:description" content="After one month working on my Google Summer of Code project, I&rsquo;m writing this post to inform about the current status of the project. If you want to know more about my project such as a description of the project and a short presentation of myself, you can read my previous post and view the code on github."/>
+
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://jyeray.github.io/">Joaquín&#39;s blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                
+            
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="meta text-muted mb-3">
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">July 1, 2016</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>717 words</span>
+                            <span><i class="fas fa-clock mr-2"></i>4 mins read</span>
+                        </div>
+
+                        <h1>An Initial Version of Gsoc Project</h1>
+
+                        <ul class="authors list-inline"><li class="list-inline-item mr-3">
+                    <div class="media author"><a href="/authors/joaquin-martin/" class="mr-3">
+                                    <picture>
+                                        <source srcset="/authors/joaquin-martin/profile_hu044e4e57b780ac751f71600da9b09a58_270373_64x0_resize_q75_box.jpg 1x, /authors/joaquin-martin/profile_hu044e4e57b780ac751f71600da9b09a58_270373_128x0_resize_q100_box.jpg 2x, /authors/joaquin-martin/profile_hu044e4e57b780ac751f71600da9b09a58_270373_192x0_resize_q100_box.jpg 3x">
+                                        <img src="/authors/joaquin-martin/profile_hu044e4e57b780ac751f71600da9b09a58_270373_64x0_resize_q75_box.jpg" class="rounded-circle" alt="Joaquín Martín">
+                                    </picture>
+                                </a><div class="media-body">
+                            <h5 class="name my-0"><a href="/authors/joaquin-martin/" class="small">Joaquín Martín</a>
+                            </h5><p class="social small text-muted">
+                                    <a href="https://twitter.com/@jyeraydev">@jyeraydev</a>
+                                </p></div>
+                    </div>
+                </li></ul>
+                    </div>
+                </div><div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="content">
+                            <p>After one month working on <a href="https://summerofcode.withgoogle.com/archive/2016/projects/5619722846470144/">my Google Summer of Code project</a>, I&rsquo;m writing this post to inform about the current status of the project. If you want to know more about my project such as a description of the project and a short presentation of myself, you can read <a href="http://joaquinyeray.me/2016/05/30/my-gsoc-project-with-opensuse/">my previous post</a> and view the code on <a href="https://github.com/yast/yast-update-alternatives">github</a>.</p>
+<p>On this month, I have had daily meetings with my mentors, where we talk about the progress of the project and decide the next step. In the first meeting we decided to start making a mock-up of the user interface. This works to have an accurate picture of the module&rsquo;s expected functionalities. There is a list with these functionalities:</p>
+<ul>
+<li>List all existing alternatives on the system.</li>
+<li>Set an alternative on automatic mode. This means that the choice with more priority is selected automatically.</li>
+<li>Set a particular choice for an alternative. (Changes the mode to manual)</li>
+</ul>
+<p>To achieve these features we start loading the alternatives from the system, to do that we use <a href="https://github.com/openSUSE/cheetah">Cheetah</a>, a very great tool to execute externals commands, and then show it in the dialog. The next was to make possible to manage (points two and three) the alternatives. And finally save the changes on the system using <a href="https://github.com/openSUSE/cheetah">Cheetah</a> again.</p>
+<p>To reach those goals, we had to use our own vocabulary to refer to the involved objects, because we found the man page of update-alternatives to not be clear enough. So in this way when I talk about a &ldquo;choice&rdquo; I refer to a value that an alternative can have.</p>
+<p>The current target is to improve the user interface, in order to make it easier to use and achieve a better user experience. There are already some improvements implemented over the mock-up:</p>
+<ul>
+<li>Search field to find an alternative by its name.</li>
+<li>Filter to hide the alternatives with only one choice. Is activated by default because it makes little sense to show something that cannot be modified.</li>
+<li>Information of the current status of the alternative.</li>
+</ul>
+<p>Lets see how it works right now:</p>
+<p>Right after starting the module you will see something like this.</p>
+<figure class="figure">
+    <a href="/images/2016-07-01-an-initial-version-of-gsoc-project/image1_en.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+        <img src="/images/2016-07-01-an-initial-version-of-gsoc-project/image1_en.png"class="figure-img img-fluid"
+        /> 
+    </a>
+</figure>
+
+<p>In the image above you can see a list of alternatives that exists on the system, as well as some information about every one like the name of the alternative, the actual choice and the status (it can be &ldquo;auto&rdquo; or &ldquo;manual&rdquo;). Note that there is a filter activated. This filter hide the alternatives that only have one possible choice. If you disable this filter, probably you will see something like this.</p>
+<figure class="figure">
+    <a href="/images/2016-07-01-an-initial-version-of-gsoc-project/image2_en.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+        <img src="/images/2016-07-01-an-initial-version-of-gsoc-project/image2_en.png"class="figure-img img-fluid"
+        /> 
+    </a>
+</figure>
+
+<p>Another filter is the search field, whit this you can filter the alternatives by his name. Here you have an example:</p>
+<figure class="figure">
+    <a href="/images/2016-07-01-an-initial-version-of-gsoc-project/image3_en.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+        <img src="/images/2016-07-01-an-initial-version-of-gsoc-project/image3_en.png"class="figure-img img-fluid"
+        /> 
+    </a>
+</figure>
+
+<p>If you click on the button &ldquo;Show alternatives&rdquo; or make double click on a certain item on the table, another dialog to manage the alternative will be opened. Let&rsquo;s take a look to it.</p>
+<figure class="figure">
+    <a href="/images/2016-07-01-an-initial-version-of-gsoc-project/image4_en.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+        <img src="/images/2016-07-01-an-initial-version-of-gsoc-project/image4_en.png"class="figure-img img-fluid"
+        /> 
+    </a>
+</figure>
+
+<p>At the top of the dialog, can see the actual information about the alternative. In the middle there a table with all possible choices for this alternative and its priority. Below the table you can find a RichText, this is used to show the slaves of the selected choice in the table above. Note that, at this moment, right after opening the dialog, this RichText show the sentence &ldquo;Please select an alternative to view his slaves&rdquo; instead of the slaves of the alternatives selected on the table. Right now I&rsquo;m working to fix it. In the next image you can see an example of this RichText showing the slaves.</p>
+<figure class="figure">
+    <a href="/images/2016-07-01-an-initial-version-of-gsoc-project/image5_en.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+        <img src="/images/2016-07-01-an-initial-version-of-gsoc-project/image5_en.png"class="figure-img img-fluid"
+        /> 
+    </a>
+</figure>
+
+<p>Last but not least, in the bottom of the dialog there are three buttons, &ldquo;Set alternative&rdquo; change the selected choice of the alternative by the choice selected on the table and change the status to manual, the second button &ldquo;Set automatic mode&rdquo; set the status of the alternative to auto as the name suggests, and finally the &ldquo;Cancel&rdquo; button to exit the dialog.</p>
+<p>Finally, for a succesfull GSoC project we need to get feedback. So I would like you to try the module and let me know your feelings and suggestions writing a comment in this post. You can download <a href="https://software.opensuse.org/download.html?project=YaST%3AHead&amp;package=yast2-update-alternatives">here</a> and run it with the command &ldquo;/sbin/yast2 update_alternatives&rdquo; (Execute with &ldquo;sudo&rdquo; if you want to make changes in the system). Of course view the code on <a href="https://github.com/yast/yast-update-alternatives">github</a>.</p>
+                        </div><ul class="share nav my-3 justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://twitter.com/intent/tweet?url=https%3a%2f%2fjyeray.github.io%2fpost%2f2016-07-01-an-initial-version-of-gsoc-project%2f&text=An%20Initial%20Version%20of%20Gsoc%20Project">
+              <i class="fa-fw fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fjyeray.github.io%2fpost%2f2016-07-01-an-initial-version-of-gsoc-project%2f&title=An%20Initial%20Version%20of%20Gsoc%20Project">
+                <i class="fa-fw fab fa-linkedin-in"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjyeray.github.io%2fpost%2f2016-07-01-an-initial-version-of-gsoc-project%2f&t=An%20Initial%20Version%20of%20Gsoc%20Project">
+                <i class="fa-fw fab fa-facebook-f"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://reddit.com/submit?url=https%3a%2f%2fjyeray.github.io%2fpost%2f2016-07-01-an-initial-version-of-gsoc-project%2f&title=An%20Initial%20Version%20of%20Gsoc%20Project">
+                <i class="fa-fw fab fa-reddit-alien"></i>
+            </a>
+        </li>
+    </nav>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+                    </div>
+                </div></article>
+        </div>
+    </div>
+
+    
+</main>
+
+
+    <footer class="footer text-center bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://jyeray.github.io/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                            <a href="https://github.com/jyeray" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://www.linkedin.com/in/joaqu%C3%ADn-yeray-mart%C3%ADn-de-la-nuez-132670121/" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://twitter.com/jyeraydev" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright &copy; Joaquín&#39;s blog 2020
+                    
+                </p>
+
+                <p class="text-muted">
+                Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with <a href="https://github.com/puresyntax71/hugo-theme-chunky-poster" target="_blank">Chunky Poster</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    
+        
+            <script src="/dist/main.d608eadfe5ac0688902e.min.js"></script>
+        
+    
+
+
+
+<script>
+    window.Prism = window.Prism || {};
+    window.Prism.manual = true;
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-XXXX', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>
+  
+     MiddlewareFilter asp .net core | 
+    Joaquín&#39;s blog
+  
+</title><meta name="description" content="Have a lot of fun."><meta name="author" content="Joaquín Martín">
+
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism-tomorrow.min.css">
+    
+
+
+
+    
+        
+            <link rel="stylesheet" href="/dist/main.37ab3f61b95417873748.min.css">
+        
+    
+
+
+
+
+<link rel="canonical" href="https://jyeray.github.io/post/middlewarefilter/"><meta property="og:title" content="MiddlewareFilter asp .net core" />
+<meta property="og:description" content="One of my favourites features of ASP .NET Core compared to ASP .NET is the application pipeline or app pipeline. Basically the app pipeline allow you to specify what should be executed when an HTTP request arrive.
+The idea is simple, when an HTTP request is being execute, the middlewares are executed in order. Each middleware has the responsability of call the next middleware in the pipeline or do not call it, short-circuiting the pipeline. This is a powerfull way to configure the behaviour of your application." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jyeray.github.io/post/middlewarefilter/" />
+<meta property="article:published_time" content="2020-04-09T11:37:25+01:00" />
+<meta property="article:modified_time" content="2020-04-09T11:37:25+01:00" />
+<meta itemprop="name" content="MiddlewareFilter asp .net core">
+<meta itemprop="description" content="One of my favourites features of ASP .NET Core compared to ASP .NET is the application pipeline or app pipeline. Basically the app pipeline allow you to specify what should be executed when an HTTP request arrive.
+The idea is simple, when an HTTP request is being execute, the middlewares are executed in order. Each middleware has the responsability of call the next middleware in the pipeline or do not call it, short-circuiting the pipeline. This is a powerfull way to configure the behaviour of your application.">
+<meta itemprop="datePublished" content="2020-04-09T11:37:25&#43;01:00" />
+<meta itemprop="dateModified" content="2020-04-09T11:37:25&#43;01:00" />
+<meta itemprop="wordCount" content="822">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MiddlewareFilter asp .net core"/>
+<meta name="twitter:description" content="One of my favourites features of ASP .NET Core compared to ASP .NET is the application pipeline or app pipeline. Basically the app pipeline allow you to specify what should be executed when an HTTP request arrive.
+The idea is simple, when an HTTP request is being execute, the middlewares are executed in order. Each middleware has the responsability of call the next middleware in the pipeline or do not call it, short-circuiting the pipeline. This is a powerfull way to configure the behaviour of your application."/>
+
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://jyeray.github.io/">Joaquín&#39;s blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                
+            
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="meta text-muted mb-3">
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">April 9, 2020</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>822 words</span>
+                            <span><i class="fas fa-clock mr-2"></i>4 mins read</span>
+                        </div>
+
+                        <h1>MiddlewareFilter asp .net core</h1>
+
+                        <ul class="authors list-inline"><li class="list-inline-item mr-3">
+                    <div class="media author"><a href="/authors/joaquin-martin/" class="mr-3">
+                                    <picture>
+                                        <source srcset="/authors/joaquin-martin/profile_hu044e4e57b780ac751f71600da9b09a58_270373_64x0_resize_q75_box.jpg 1x, /authors/joaquin-martin/profile_hu044e4e57b780ac751f71600da9b09a58_270373_128x0_resize_q100_box.jpg 2x, /authors/joaquin-martin/profile_hu044e4e57b780ac751f71600da9b09a58_270373_192x0_resize_q100_box.jpg 3x">
+                                        <img src="/authors/joaquin-martin/profile_hu044e4e57b780ac751f71600da9b09a58_270373_64x0_resize_q75_box.jpg" class="rounded-circle" alt="Joaquín Martín">
+                                    </picture>
+                                </a><div class="media-body">
+                            <h5 class="name my-0"><a href="/authors/joaquin-martin/" class="small">Joaquín Martín</a>
+                            </h5><p class="social small text-muted">
+                                    <a href="https://twitter.com/@jyeraydev">@jyeraydev</a>
+                                </p></div>
+                    </div>
+                </li></ul>
+                    </div>
+                </div><div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="content">
+                            <p>One of my favourites features of ASP .NET Core compared to ASP .NET is the application pipeline or app pipeline. Basically the app pipeline allow you to specify what should be executed when an HTTP request arrive.</p>
+<p>The idea is simple, when an HTTP request is being execute, the middlewares are executed in order. Each middleware has the responsability of call the next middleware in the pipeline or do not call it, short-circuiting the pipeline. This is a powerfull way to configure the behaviour of your application.</p>
+<p>The pipeline is configured adding middlewares to <code>IApplicationBuilder</code> instance in <code>Configure</code> method within <code>Startup.cs</code>. It can look something like this:</p>
+<pre><code class="language-csharp">public void Configure(IApplicationBuilder app) {
+    app
+        .UseRouting()
+        .UseCors()
+        .UseAuthentication()
+        .UseAuthorization()
+        .UseMvc();
+}
+</code></pre>
+<h4 id="creating-your-own-middleware">Creating your own Middleware</h4>
+<p>There are different ways to create and add a middleware to the app pipeline. But my preferred option is to create a middleware is using a class. This class only need to receive the <code>RequestDelegate</code> parameter in the constructor and have an <code>Invoke</code> method. As an example here is a simple Middleware.</p>
+<pre><code class="language-csharp">public class ExampleMiddleware {
+    private readonly RequestDelegate next;
+
+    public ExampleMiddleware(RequestDelegate next) {
+        this.next = next;
+    }
+
+    public async Task Invoke(HttpContext httpContext)
+    {
+        // Do whatever you want before call the next middleware
+        await next(httpContext);
+        // Do whatever when the next middleware already treated the request
+    }
+}
+</code></pre>
+<p>To continue with the application pipeline you only need to call to the <code>RequestDelegate</code> passing the <code>HttpContext</code>. You can do whatever you want before and after calling the <code>RequestDelegate</code>. Even you can decide not to call the <code>RequestDelegate</code> and return a custom response, short-circuiting the pipeline. This is how several middlewares like <a href="https://github.com/domaindrivendev/Swashbuckle.AspNetCore">SwaggerUi</a> or <a href="https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks">HealthChecks</a> works.</p>
+<p>Normally an extension method is provided in order to simplify the usage of the middleware. The extension method for our example middleware could be something like this.</p>
+<pre><code class="language-csharp">public static class ExampleMiddlewareExtension {
+    public static IApplicationBuilder UseExample(this IApplicationBuilder app) {
+        return app.UseMiddleware&lt;ExampleMiddleware&gt;();
+    }
+}
+</code></pre>
+<p>An thats all, simply adding a call to this extension method in the <code>Configure</code>, every HTTP request will trigger a call to the <code>Invoke</code> method of your middleware.</p>
+<p>But, what happens if you do not want that you middleware be called in every requets?, what if you want to execute some logic only in certain controllers? For this case you have another option, use a <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-3.1">Filter</a></p>
+<h4 id="a-little-about-filters">A little about filters</h4>
+<p><em>Disclaimer: I am not going to explain all about filters in this posts, so if you are interested on this topic, i suggest you to check the <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-3.1">Microsoft documentation</a>.</em></p>
+<p>Filters have a different lifecycle, as shown in the following figure they are executed within MVC action. This is after ASP .NET Core has selected the action to execute.</p>
+<figure class="figure">
+    <a href="/images/middlewareFilter/filter-pipeline.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+        <img src="/images/middlewareFilter/filter-pipeline.png"
+             alt="Image from Microsoft documentation"class="figure-img img-fluid"
+        /> 
+    </a><figcaption class="figure-caption text-center">
+            <p>Image from Microsoft documentation</p>
+        </figcaption>
+</figure>
+
+<p>Filters are very powerfull but that powerfull have a price, the complexity. There are several filters types, with different methods to be implemented, all of these methods are called in different moments of the requests.</p>
+<p>But not allways all this complexity is needed, so there is another way to get the advantages of a filter avoiding such complexity.</p>
+<h4 id="using-middleware-as-a-filter">Using middleware as a Filter</h4>
+<p>There is another tool that allow us to use a middleware as a filter, this is the MiddlewareFilterAttribute. The middleware will be invoked in the filter pipeline, in the runtime execution, giving us some of the advantages of the filters with the simplicity of middlewares.</p>
+<p>In order to use MiddlewareFilterAttribute we need to create a new class, this class must meet the following requisites:</p>
+<ul>
+<li>have parameterless contructor.</li>
+<li>a public method <code>Configure</code> that receives <code>IApplicationBuilder</code> as parameter.</li>
+</ul>
+<p>Resuming our previous example, the class could look something like the following code. Note that the same logic that the previously <code>ExampleMiddlewareExtension</code>.</p>
+<pre><code class="language-csharp">public class ExampleMiddlewareBuilder {
+    public void Configure(IApplicationBuilder app) {
+        app.UseMiddleware&lt;ExampleMiddleware&gt;();
+    }
+}
+</code></pre>
+<p>Once we have this class we can use the <code>MiddlewareFilterAttribute</code>.</p>
+<pre><code class="language-csharp">[Route(&quot;api/values&quot;)]
+[ApiController]
+[MiddlewareFilter(typeof(ExampleMiddlewareBuilder))]
+public class ValuesController : ControllerBase {
+
+    [HttpGet]
+    public ICollection&lt;string&gt; Get() {
+        return new List&lt;string&gt;{ &quot;1&quot;, &quot;2&quot; };
+    }
+}
+</code></pre>
+<p>And we have it, every HTTP request to <code>ValuesController</code> will trigger the execution of our <code>ExampleMiddleware</code></p>
+<h4 id="some-advantages-of-using-middlewarefilterattribute">Some advantages of using MiddlewareFilterAttribute</h4>
+<p>But there is more, executing the middleware within the filter pipeline give us some posibilites in the middleware, like access to the context of the action execution. For example we can access to ActionContext.</p>
+<p>Lets put an use case example, imagine that you want to compare the JSON that comes in the request body with the parameter that the action is expecting. This is not posible in the application pipeline, due to we need that the framework has already decided what action must be executed.</p>
+<p>Taking this use case, if we need to check the body of all requets. There is an option in order to not repeat the <code>MiddlewareFilterAttribute</code> declaration in every controller. We can use <code>MiddlewareFilterAttribute</code> to register the middleware as a global filter.</p>
+<pre><code class="language-csharp">public void ConfigureServices(IServiceCollection services) {
+    // ...
+    services
+        .AddMvcCore(mvcConfig =&gt; {
+            mvcConfig.Filters.Add(new MiddlewareFilterAttribute(typeof(ExampleMiddlewareBuilder)));
+        })
+    // ...
+}
+</code></pre>
+                        </div><ul class="share nav my-3 justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://twitter.com/intent/tweet?url=https%3a%2f%2fjyeray.github.io%2fpost%2fmiddlewarefilter%2f&text=MiddlewareFilter%20asp%20.net%20core">
+              <i class="fa-fw fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fjyeray.github.io%2fpost%2fmiddlewarefilter%2f&title=MiddlewareFilter%20asp%20.net%20core">
+                <i class="fa-fw fab fa-linkedin-in"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjyeray.github.io%2fpost%2fmiddlewarefilter%2f&t=MiddlewareFilter%20asp%20.net%20core">
+                <i class="fa-fw fab fa-facebook-f"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://reddit.com/submit?url=https%3a%2f%2fjyeray.github.io%2fpost%2fmiddlewarefilter%2f&title=MiddlewareFilter%20asp%20.net%20core">
+                <i class="fa-fw fab fa-reddit-alien"></i>
+            </a>
+        </li>
+    </nav>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+                    </div>
+                </div></article>
+        </div>
+    </div>
+
+    
+</main>
+
+
+    <footer class="footer text-center bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://jyeray.github.io/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                            <a href="https://github.com/jyeray" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://www.linkedin.com/in/joaqu%C3%ADn-yeray-mart%C3%ADn-de-la-nuez-132670121/" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://twitter.com/jyeraydev" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright &copy; Joaquín&#39;s blog 2020
+                    
+                </p>
+
+                <p class="text-muted">
+                Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with <a href="https://github.com/puresyntax71/hugo-theme-chunky-poster" target="_blank">Chunky Poster</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    
+        
+            <script src="/dist/main.d608eadfe5ac0688902e.min.js"></script>
+        
+    
+
+
+
+<script>
+    window.Prism = window.Prism || {};
+    window.Prism.manual = true;
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-XXXX', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</body>
+</html>

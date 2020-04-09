@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Joaquín&#39;s blog</title>
+    <link>https://jyeray.github.io/</link>
+    <description>Recent content on Joaquín&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Apr 2020 11:37:25 +0100</lastBuildDate>
+    
+	<atom:link href="https://jyeray.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MiddlewareFilter asp .net core</title>
+      <link>https://jyeray.github.io/post/middlewarefilter/</link>
+      <pubDate>Thu, 09 Apr 2020 11:37:25 +0100</pubDate>
+      
+      <guid>https://jyeray.github.io/post/middlewarefilter/</guid>
+      <description>&lt;p&gt;One of my favourites features of ASP .NET Core compared to ASP .NET is the application pipeline or app pipeline. Basically the app pipeline allow you to specify what should be executed when an HTTP request arrive.&lt;/p&gt;
+&lt;p&gt;The idea is simple, when an HTTP request is being execute, the middlewares are executed in order. Each middleware has the responsability of call the next middleware in the pipeline or do not call it, short-circuiting the pipeline. This is a powerfull way to configure the behaviour of your application.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Finishing My Gsoc Project</title>
+      <link>https://jyeray.github.io/post/2016-08-17-finishing-my-gsoc-project/</link>
+      <pubDate>Wed, 17 Aug 2016 23:14:18 +0100</pubDate>
+      
+      <guid>https://jyeray.github.io/post/2016-08-17-finishing-my-gsoc-project/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://developers.google.com/open-source/gsoc/&#34;&gt;GSoC&lt;/a&gt; is near to finish, and my project its finished too. Only missing some reviews in the &lt;a href=&#34;https://build.opensuse.org/request/show/416354&#34;&gt;submit request&lt;/a&gt;. Its expected that it will be released in a Tumbleweed snapshot in few days. But if you don&amp;rsquo;t want to wait to try it, you can install it from the &lt;a href=&#34;https://software.opensuse.org/package/yast2-alternatives?search_term=yast2-alternatives&#34;&gt;YaST Head repository&lt;/a&gt;. As I say in every post about the GSoC project you can see the code on &lt;a href=&#34;https://github.com/yast/yast-alternatives&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Opensuse Conference 2016</title>
+      <link>https://jyeray.github.io/post/2016-07-15-opensuse-conference-2016/</link>
+      <pubDate>Fri, 15 Jul 2016 23:06:37 +0100</pubDate>
+      
+      <guid>https://jyeray.github.io/post/2016-07-15-opensuse-conference-2016/</guid>
+      <description>&lt;p&gt;Few weeks ago, I attended to the &lt;a href=&#34;https://events.opensuse.org/conference/oSC16/&#34;&gt;OpenSUSE conference&lt;/a&gt; in Nuremberg. I arrived on Tuesday 21, with time to go to the pre-conference party. Where I met GSoC students &lt;a href=&#34;https://gsocwithopensuse.wordpress.com/&#34;&gt;Ana&lt;/a&gt; and &lt;a href=&#34;https://rishabhstr.wordpress.com/&#34;&gt;Rishabh&lt;/a&gt;, also I was talking with one of my mentors, &lt;a href=&#34;https://github.com/ancorgs&#34;&gt;Ancor&lt;/a&gt; and met some of his coworkers. I also drank my first German beer.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>An Initial Version of Gsoc Project</title>
+      <link>https://jyeray.github.io/post/2016-07-01-an-initial-version-of-gsoc-project/</link>
+      <pubDate>Fri, 01 Jul 2016 11:00:00 +0000</pubDate>
+      
+      <guid>https://jyeray.github.io/post/2016-07-01-an-initial-version-of-gsoc-project/</guid>
+      <description>&lt;p&gt;After one month working on &lt;a href=&#34;https://summerofcode.withgoogle.com/archive/2016/projects/5619722846470144/&#34;&gt;my Google Summer of Code project&lt;/a&gt;, I&amp;rsquo;m writing this post to inform about the current status of the project. If you want to know more about my project such as a description of the project and a short presentation of myself, you can read &lt;a href=&#34;http://joaquinyeray.me/2016/05/30/my-gsoc-project-with-opensuse/&#34;&gt;my previous post&lt;/a&gt; and view the code on &lt;a href=&#34;https://github.com/yast/yast-update-alternatives&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>My Gsoc Project With Opensuse</title>
+      <link>https://jyeray.github.io/post/2016-05-30-my-gsoc-project-with-opensuse/</link>
+      <pubDate>Mon, 30 May 2016 11:00:00 +0000</pubDate>
+      
+      <guid>https://jyeray.github.io/post/2016-05-30-my-gsoc-project-with-opensuse/</guid>
+      <description>&lt;p&gt;Hello openSUSE community, my name is Joaquín (my nickname is jyeray), I&amp;rsquo;m from Canary Islands, Spain. And here you can see my &lt;a href=&#34;https://github.com/jyeray&#34;&gt;Github&lt;/a&gt;. I am studying Software Engineering at University of Las Palmas de Gran Canaria. I’m an enthusiast of free software and GNU/Linux, I have tasted many GNU/Linux distributions but when I install openSUSE &amp;hellip; I love it!.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
