@@ -39,7 +39,7 @@ The idea is simple when an HTTP request is processed, the middlewares are execut
 The idea is simple when an HTTP request is processed, the middlewares are executed in order. Each middleware has the responsibility to call the next middleware in the pipeline or do not call it, short-circuiting the pipeline. This is a powerful way to configure the behaviour of your application.">
 <meta itemprop="datePublished" content="2020-04-09T11:37:25&#43;01:00" />
 <meta itemprop="dateModified" content="2020-04-09T11:37:25&#43;01:00" />
-<meta itemprop="wordCount" content="1202">
+<meta itemprop="wordCount" content="1194">
 
 
 
@@ -79,7 +79,7 @@ The idea is simple when an HTTP request is processed, the middlewares are execut
                     <div class="col-lg-8">
                         <div class="meta text-muted mb-3">
                             <p class="created text-muted text-uppercase font-weight-bold mb-1">April 9, 2020</p>
-                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>1202 words</span>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>1194 words</span>
                             <span><i class="fas fa-clock mr-2"></i>6 mins read</span>
                         </div>
 
@@ -223,8 +223,8 @@ public class ValuesController : ControllerBase {
     // More configuration
 }
 </code></pre>
-<p>And now we are ready to use it in our controllers as we saw previously in the <strong>Using middleware as a Filter</strong> section</p>
-<p>Taking this use case, if we need to log the body of all requests. There is an option to not repeat the <code>MiddlewareFilterAttribute</code> declaration in every controller. We can use <code>MiddlewareFilterAttribute</code> to register the middleware as a global filter.</p>
+<p>And now we are ready to use it in our controllers as we saw previously in the <strong>Using middleware as a Filter</strong> section.</p>
+<p>Taking this use case, if we need to log the body of all requests. We can register it globally like any other filter. Avoiding to repeat it in every controller class.</p>
 <pre><code class="language-csharp">public void ConfigureServices(IServiceCollection services) {
     // ...
     services.AddSingleton&lt;IActionContextAccessor, ActionContextAccessor&gt;();
