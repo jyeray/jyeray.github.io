@@ -27,7 +27,7 @@
       <pubDate>Wed, 17 Aug 2016 23:14:18 +0100</pubDate>
       
       <guid>https://jyeray.github.io/post/2016-08-17-finishing-my-gsoc-project/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://developers.google.com/open-source/gsoc/&#34;&gt;GSoC&lt;/a&gt; is near to finish, and my project its finished too. Only missing some reviews in the &lt;a href=&#34;https://build.opensuse.org/request/show/416354&#34;&gt;submit request&lt;/a&gt;. Its expected that it will be released in a Tumbleweed snapshot in few days. But if you don&amp;rsquo;t want to wait to try it, you can install it from the &lt;a href=&#34;https://software.opensuse.org/package/yast2-alternatives?search_term=yast2-alternatives&#34;&gt;YaST Head repository&lt;/a&gt;. As I say in every post about the GSoC project you can see the code on &lt;a href=&#34;https://github.com/yast/yast-alternatives&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://developers.google.com/open-source/gsoc/&#34;&gt;GSoC&lt;/a&gt; is near to finish, and my project its finished too. Only missing some reviews in the &lt;a href=&#34;https://build.opensuse.org/request/show/416354&#34;&gt;submit request&lt;/a&gt;. Its expected that it will be released in a Tumbleweed snapshot in few days. But if you don&#39;t want to wait to try it, you can install it from the &lt;a href=&#34;https://software.opensuse.org/package/yast2-alternatives?search_term=yast2-alternatives&#34;&gt;YaST Head repository&lt;/a&gt;. As I say in every post about the GSoC project you can see the code on &lt;a href=&#34;https://github.com/yast/yast-alternatives&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -45,7 +45,7 @@
       <pubDate>Fri, 01 Jul 2016 11:00:00 +0000</pubDate>
       
       <guid>https://jyeray.github.io/post/2016-07-01-an-initial-version-of-gsoc-project/</guid>
-      <description>&lt;p&gt;After one month working on &lt;a href=&#34;https://summerofcode.withgoogle.com/archive/2016/projects/5619722846470144/&#34;&gt;my Google Summer of Code project&lt;/a&gt;, I&amp;rsquo;m writing this post to inform about the current status of the project. If you want to know more about my project such as a description of the project and a short presentation of myself, you can read &lt;a href=&#34;http://joaquinyeray.me/2016/05/30/my-gsoc-project-with-opensuse/&#34;&gt;my previous post&lt;/a&gt; and view the code on &lt;a href=&#34;https://github.com/yast/yast-update-alternatives&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;After one month working on &lt;a href=&#34;https://summerofcode.withgoogle.com/archive/2016/projects/5619722846470144/&#34;&gt;my Google Summer of Code project&lt;/a&gt;, I&#39;m writing this post to inform about the current status of the project. If you want to know more about my project such as a description of the project and a short presentation of myself, you can read &lt;a href=&#34;http://joaquinyeray.me/2016/05/30/my-gsoc-project-with-opensuse/&#34;&gt;my previous post&lt;/a&gt; and view the code on &lt;a href=&#34;https://github.com/yast/yast-update-alternatives&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -54,7 +54,7 @@
       <pubDate>Mon, 30 May 2016 11:00:00 +0000</pubDate>
       
       <guid>https://jyeray.github.io/post/2016-05-30-my-gsoc-project-with-opensuse/</guid>
-      <description>&lt;p&gt;Hello openSUSE community, my name is Joaquín (my nickname is jyeray), I&amp;rsquo;m from Canary Islands, Spain. And here you can see my &lt;a href=&#34;https://github.com/jyeray&#34;&gt;Github&lt;/a&gt;. I am studying Software Engineering at University of Las Palmas de Gran Canaria. I’m an enthusiast of free software and GNU/Linux, I have tasted many GNU/Linux distributions but when I install openSUSE &amp;hellip; I love it!.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Hello openSUSE community, my name is Joaquín (my nickname is jyeray), I&#39;m from Canary Islands, Spain. And here you can see my &lt;a href=&#34;https://github.com/jyeray&#34;&gt;Github&lt;/a&gt;. I am studying Software Engineering at University of Las Palmas de Gran Canaria. I’m an enthusiast of free software and GNU/Linux, I have tasted many GNU/Linux distributions but when I install openSUSE &amp;hellip; I love it!.&lt;/p&gt;</description>
     </item>
     
   </channel>
