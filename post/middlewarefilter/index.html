@@ -139,8 +139,8 @@ The idea is simple when an HTTP request is processed, the middlewares are execut
     }
 }
 </code></pre>
-<p>And that's all, simply adding a call to this extension method within the <code>Configure</code> method in <code>Startup</code> class, every HTTP request will trigger a call to the <code>Invoke</code> method of your middleware.</p>
-<p>But, what happens if you don't want your middleware to be invoked in every request? what if you want some logic to be executed only in certain controllers? For this case you have another option, use a <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-3.1">Filter</a></p>
+<p>And that&rsquo;s all, simply adding a call to this extension method within the <code>Configure</code> method in <code>Startup</code> class, every HTTP request will trigger a call to the <code>Invoke</code> method of your middleware.</p>
+<p>But, what happens if you don&rsquo;t want your middleware to be invoked in every request? what if you want some logic to be executed only in certain controllers? For this case you have another option, use a <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-3.1">Filter</a>.</p>
 <h4 id="a-little-about-filters">A little about filters</h4>
 <p><em>Disclaimer: I am not going to explain all about filters in this post, so if you are interested in this topic, I suggest you check the <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-3.1">Microsoft documentation</a>.</em></p>
 <p>Filters have a different lifecycle, as shown in the following figure they are executed within MVC action. This is after ASP .NET Core has selected the action to execute.</p>
@@ -160,8 +160,8 @@ The idea is simple when an HTTP request is processed, the middlewares are execut
 <p>There is another tool that allows us to use a Middleware as a filter, this is the MiddlewareFilterAttribute. The middleware will be invoked in the filter pipeline, in the runtime execution, giving us some of the advantages of the filters with the simplicity of middlewares.</p>
 <p>To use MiddlewareFilterAttribute we need to create a new class, this class must meet the following requisites:</p>
 <ul>
-<li>Have a parameterless constructor.</li>
-<li>A public method <code>Configure</code> that receives <code>IApplicationBuilder</code> as a parameter.</li>
+<li>Have a parameterless constructor</li>
+<li>A public method <code>Configure</code> that receives <code>IApplicationBuilder</code> as a parameter</li>
 </ul>
 <p>Resuming our previous example, the class could look something like the following code. Note that the same logic that the previously <code>ExampleMiddlewareExtension</code>.</p>
 <pre><code class="language-csharp">public class ExampleMiddlewareBuilder {
@@ -182,10 +182,10 @@ public class ValuesController : ControllerBase {
     }
 }
 </code></pre>
-<p>And we have it, every HTTP request to <code>ValuesController</code> will trigger the execution of our <code>ExampleMiddleware</code></p>
+<p>And we have it, every HTTP request to <code>ValuesController</code> will trigger the execution of our <code>ExampleMiddleware</code>.</p>
 <h4 id="some-advantages-of-using-middlewarefilterattribute">Some advantages of using MiddlewareFilterAttribute</h4>
 <p>But there is more, executing the middleware within the filter pipeline gives us some extra possibilities in the middleware, like access to the context of the action execution using the IActionContextAccessor, that can be declared as a dependency within the middleware constructor.</p>
-<p>Let's put a use case example, imagine that you want to log the body of the HTTP requests. That can be easily done in a middleware, just reading the body. Let's do it a little more complicated, if you have any sensitive data in the body that you must not log it, in this case, we can not log all the request body.</p>
+<p>Let&rsquo;s put a use case example, imagine that you want to log the body of the HTTP requests. That can be easily done in a middleware, just reading the body. Let&rsquo;s do it a little more complicated, if you have any sensitive data in the body that you must not log it, in this case, we can not log all the request body.</p>
 <p>Our idea was to use an <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/">Attribute</a> in the Data Transfer Objects (DTO) properties to specify which data must not be logged. Once we have the properties we can log and which not, our idea is to intercept the request and log the information that is possible.</p>
 <p>The first try was to use a middleware in the request pipeline. The problem with this approach is that it is not possible to know what is the DTO is expected by the controller. So we need to know what action is going to be executed in order to know the DTO type.</p>
 <p>Filters solve that problem, due to being executed in a different lifecycle where the framework has already selected the action to process the request. We created an <a href="https://docs.microsoft.com/es-es/aspnet/core/mvc/controllers/filters?view=aspnetcore-3.1#action-filtersfilter">ActionFilter</a> where we had:</p>
@@ -194,7 +194,7 @@ public class ValuesController : ControllerBase {
 <p>The body of the request</p>
 </li>
 <li>
-<p>A way to access the DTO expected by the controller.</p>
+<p>A way to access the DTO expected by the controller</p>
 </li>
 </ul>
 <p>To log the body, in the first place we deserialized the body to the DTO, and then we can log the DTO without the properties that have the Attribute we created before.</p>
@@ -216,7 +216,7 @@ public class ValuesController : ControllerBase {
     }
 }
 </code></pre>
-<p>There is only one step more to have that code working, we need to add <code>IActionContextAccessor</code> to the dependency injection container. It can be done in the <code>ConfigureServices</code> method in your StartUp.cs</p>
+<p>There is only one step more to have that code working, we need to add <code>IActionContextAccessor</code> to the dependency injection container. It can be done in the <code>ConfigureServices</code> method in your StartUp.cs.</p>
 <pre><code class="language-csharp">public void ConfigureServices(IServiceCollection services) {
     // Your configuration
     services.AddSingleton&lt;IActionContextAccessor, ActionContextAccessor&gt;();
