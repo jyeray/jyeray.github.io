@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors on Joaquín&#39;s blog</title>
-    <link>https://jyeray.github.io/authors/</link>
+    <link>https://joaquinmartin.dev/authors/</link>
     <description>Recent content in Authors on Joaquín&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Apr 2020 11:37:25 +0100</lastBuildDate>
     
-	<atom:link href="https://jyeray.github.io/authors/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joaquinmartin.dev/authors/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>https://jyeray.github.io/authors/joaquin-martin/</link>
+      <link>https://joaquinmartin.dev/authors/joaquin-martin/</link>
       <pubDate>Thu, 09 Apr 2020 11:37:25 +0100</pubDate>
       
-      <guid>https://jyeray.github.io/authors/joaquin-martin/</guid>
+      <guid>https://joaquinmartin.dev/authors/joaquin-martin/</guid>
       <description></description>
     </item>
     

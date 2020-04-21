@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Joaquín&#39;s blog</title>
-    <link>https://jyeray.github.io/tags/</link>
+    <link>https://joaquinmartin.dev/tags/</link>
     <description>Recent content in Tags on Joaquín&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://jyeray.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joaquinmartin.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
