@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>
+  
+     Conway&#39;s law | 
+    Joaquín&#39;s blog
+  
+</title><meta name="description" content="Have a lot of fun."><meta name="author" content="Joaquín Martín">
+
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism-tomorrow.min.css">
+    
+
+
+
+    
+        
+            <link rel="stylesheet" href="/dist/main.37ab3f61b95417873748.min.css">
+        
+    
+
+
+
+
+<link rel="canonical" href="https://joaquinmartin.dev/post/2021-04-27-conways-law/"><meta property="og:title" content="Conway&#39;s law" />
+<meta property="og:description" content="The first time I heard about Conway&rsquo;s law, I was amazed; it is not common to view a &ldquo;law&rdquo; in software development. I don&rsquo;t want to enter into a naming discussion, but this awakened my interest. So let see what it is all about." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://joaquinmartin.dev/post/2021-04-27-conways-law/" />
+<meta property="og:image" content="https://joaquinmartin.dev/images/2021-04-27-conways-law/title.png" />
+<meta property="article:published_time" content="2021-04-29T22:44:00+00:00" />
+<meta property="article:modified_time" content="2021-04-29T22:44:00+00:00" />
+<meta itemprop="name" content="Conway&#39;s law">
+<meta itemprop="description" content="The first time I heard about Conway&rsquo;s law, I was amazed; it is not common to view a &ldquo;law&rdquo; in software development. I don&rsquo;t want to enter into a naming discussion, but this awakened my interest. So let see what it is all about.">
+<meta itemprop="datePublished" content="2021-04-29T22:44:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-04-29T22:44:00&#43;00:00" />
+<meta itemprop="wordCount" content="725">
+<meta itemprop="image" content="https://joaquinmartin.dev/images/2021-04-27-conways-law/title.png">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://joaquinmartin.dev/images/2021-04-27-conways-law/title.png"/>
+
+<meta name="twitter:title" content="Conway&#39;s law"/>
+<meta name="twitter:description" content="The first time I heard about Conway&rsquo;s law, I was amazed; it is not common to view a &ldquo;law&rdquo; in software development. I don&rsquo;t want to enter into a naming discussion, but this awakened my interest. So let see what it is all about."/>
+
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://joaquinmartin.dev/">Joaquín&#39;s blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                
+            
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="meta text-muted mb-3">
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">April 29, 2021</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>725 words</span>
+                            <span><i class="fas fa-clock mr-2"></i>4 mins read</span>
+                        </div>
+
+                        <h1>Conway&#39;s law</h1>
+
+                        <ul class="authors list-inline"><li class="list-inline-item mr-3">
+                    <div class="media author"><a href="/authors/joaquin-martin/" class="mr-3">
+                                    <picture>
+                                        <source srcset="/authors/joaquin-martin/profile_hu044e4e57b780ac751f71600da9b09a58_270373_64x0_resize_q75_box.jpg 1x, /authors/joaquin-martin/profile_hu044e4e57b780ac751f71600da9b09a58_270373_128x0_resize_q100_box.jpg 2x, /authors/joaquin-martin/profile_hu044e4e57b780ac751f71600da9b09a58_270373_192x0_resize_q100_box.jpg 3x">
+                                        <img src="/authors/joaquin-martin/profile_hu044e4e57b780ac751f71600da9b09a58_270373_64x0_resize_q75_box.jpg" class="rounded-circle" alt="Joaquín Martín">
+                                    </picture>
+                                </a><div class="media-body">
+                            <h5 class="name my-0"><a href="/authors/joaquin-martin/" class="small">Joaquín Martín</a>
+                            </h5><p class="social small text-muted">
+                                    <a href="https://twitter.com/@jyeraydev">@jyeraydev</a>
+                                </p></div>
+                    </div>
+                </li></ul>
+                    </div>
+                </div><div class="row justify-content-center mb-3">
+                                <div class="col-lg-10">
+                                    <img data-src="/images/2021-04-27-conways-law/title_hu1627d885844f32765297c305883ff881_118098_900x500_fit_box_2.png" class="img-fluid rounded mx-auto d-block" alt="Conway&#39;s law">
+                                </div>
+                            </div><div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="content">
+                            <p>The first time I heard about <strong>Conway&rsquo;s law</strong>, I was amazed; it is not common to view a &ldquo;law&rdquo; in software development. I don&rsquo;t want to enter into a naming discussion, but this awakened my interest. So let see what it is all about.</p>
+<p>Conway&rsquo;s law is named after Mel Conway, who in 1968 published a paper in Datamation magazine, <strong>How Do Committees Invent?</strong>. In this paper, Conway explored the relationship between organizations structure and software architecture. The most remarkable part is on the conclusion when it says:</p>
+<blockquote>
+<p>Organizations which design systems (in the broad sense used here) are constrained to produce designs which are copies of the communication structures of these organizations.</p>
+<p>&ndash; <!-- raw HTML omitted -->Mel Conway<!-- raw HTML omitted --></p>
+</blockquote>
+<p>That words were the starting point, but there are other definitions for this law that can be helpful to understand the point.</p>
+<blockquote>
+<p>The structure of any system designed by an organization is isomorphic to the structure of the organization.</p>
+<p>&ndash; <!-- raw HTML omitted -->Eduard Yourdon and Larry Constantine<!-- raw HTML omitted --> on <a href="https://www.amazon.com/Structured-Design-Fundamentals-Discipline-Computer/dp/0138544719/ref=sr_1_1?dchild=1&amp;keywords=Structured+Design%3A+Fundamentals+of+a+Discipline+of+Computer+Program+and+Systems+Design&amp;qid=1617660171&amp;sr=8-1">Structured Design: Fundamentals of a Discipline of Computer Program and Systems Design</a></p>
+</blockquote>
+<p>This is saying that the <strong>communication structure within the organization has a strong influence on the resulting system design</strong>.</p>
+<p>In other words, the resulting <strong>possibilities about the software architecture of a system are constrained by the organization communication structure</strong>, therefore also the organization structure. So it is essential to keep in mind that the organizational structure can be a limiting factor to achieve a system architecture design.</p>
+<p>I like this Sketchplanations image, a quick way to understand the concept.</p>
+<p><figure class="figure">
+    <a href="/images/2021-04-27-ConwaysLaw/sketchplanations-conways-law.jpg" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+        <img src="/images/2021-04-27-ConwaysLaw/sketchplanations-conways-law.jpg"class="figure-img img-fluid"
+        /> 
+    </a>
+</figure>
+
+Image: <a href="https://sketchplanations.com/conways-law">Sketchplanations</a></p>
+<p>This means that it is not enough saying &ldquo;we want to go to this architecture&rdquo;. When thinking about the system design we want to achieve, we must <strong>consider the organization structure</strong> because it can be a <strong>limiting factor</strong>. In the words of Mel Conway:</p>
+<blockquote>
+<p>Given any design team organization, there is a class of design alternatives which cannot be effectively pursued by such an organization because the necessary communication paths do not exist.</p>
+<p>&ndash; <!-- raw HTML omitted -->Mel Conway<!-- raw HTML omitted --></p>
+</blockquote>
+<p>Let’s put a simple example; If you have only one DBA team in your organization and is the only one with the superpower to manage and maintain the databases. It is more likely that your resulting system design has a single database. Despite maybe you have three teams working on completely separated projects with different APIs, repositories codes, etc.</p>
+<p>So if you want that each project has its own database to avoid database coupling, you will have more chances to achieve it if you give each team the ability to manage and maintain the database. It does not mean that each team must know everything about the Database Administration world, but in this way, you are changing the organization structure, therefore influencing the system architecture possibilities.</p>
+<p>This way of thinking is commonly called <strong>Inverse Conway Maneuver</strong>. The idea is to take advantage of Conway&rsquo;s law, <strong>altering the organization structure to increase the possibilities to reach the desired system design</strong>. Inverse Conway Maneuver is an excellent concept to keep in mind in a world being dominated by microservices.</p>
+<h4 id="evidence">Evidence</h4>
+<p>I want to talk a little about the evidence about this law. Software development is not like physics or any other mathematical based science. We have not a mathematical formula to prove that this statement is true. But we have empirical proof in many companies and projects, each with its characteristics. You may have experienced this at some point.</p>
+<p>The most relevant research that I have found is
+&ldquo;<a href="https://dash.harvard.edu/bitstream/handle/1/34403525/maccormack%2Cbaldwin%2Crusnak_exploring-the-duality.pdf">Exploring the duality between product and organizational architectures: A test of the “mirroring” hypothesis</a>&rdquo; research at Harvard Business School. In this study, Alan MacCormack, Carliss Baldwin, and John Rusnak compared the different software systems, some of them were open source projects, and others closed ones. The results showed that loosely organizations, like open source communities, tend to make more modular loose coupled systems than the other more tightly organizations. Typically, a company have clear goals, that helps to all organization to align to achieve it, creating a more tightly organization.</p>
+<p>So the next time someone out of the world of development says to you that we are like wizards, you can regard him that there are also laws in the wizard&rsquo;s world.</p>
+<h5 id="more-about-it">More about it</h5>
+<ul>
+<li><a href="http://www.melconway.com/Home/Committees_Paper.html">How Do Committees Invent?</a></li>
+<li><a href="https://dash.harvard.edu/bitstream/handle/1/34403525/maccormack%2Cbaldwin%2Crusnak_exploring-the-duality.pdf">Exploring the duality between product and organizational architectures: A test of the “mirroring” hypothesis</a></li>
+<li><a href="https://www.thoughtworks.com/insights/articles/demystifying-conways-law">Demystifying Conway&rsquo;s Law</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Conway%27s_law">Wikipedia consway&rsquo;s law</a></li>
+</ul>
+                        </div><ul class="share nav my-3 justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://twitter.com/intent/tweet?url=https%3a%2f%2fjoaquinmartin.dev%2fpost%2f2021-04-27-conways-law%2f&text=Conway%26%2339%3bs%20law">
+              <i class="fa-fw fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fjoaquinmartin.dev%2fpost%2f2021-04-27-conways-law%2f&title=Conway%26%2339%3bs%20law">
+                <i class="fa-fw fab fa-linkedin-in"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjoaquinmartin.dev%2fpost%2f2021-04-27-conways-law%2f&t=Conway%26%2339%3bs%20law">
+                <i class="fa-fw fab fa-facebook-f"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://reddit.com/submit?url=https%3a%2f%2fjoaquinmartin.dev%2fpost%2f2021-04-27-conways-law%2f&title=Conway%26%2339%3bs%20law">
+                <i class="fa-fw fab fa-reddit-alien"></i>
+            </a>
+        </li>
+    </nav>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+                    </div>
+                </div></article>
+        </div>
+    </div>
+
+    
+</main>
+
+
+    <footer class="footer text-center bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://joaquinmartin.dev/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                            <a href="https://github.com/jyeray" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://www.linkedin.com/in/joaqu%C3%ADn-yeray-mart%C3%ADn-de-la-nuez-132670121/" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://twitter.com/jyeraydev" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright &copy; Joaquín&#39;s blog 2021
+                    
+                </p>
+
+                <p class="text-muted">
+                Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with <a href="https://github.com/puresyntax71/hugo-theme-chunky-poster" target="_blank">Chunky Poster</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    
+        
+            <script src="/dist/main.d608eadfe5ac0688902e.min.js"></script>
+        
+    
+
+
+
+<script>
+    window.Prism = window.Prism || {};
+    window.Prism.manual = true;
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-XXXX', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+</body>
+</html>
